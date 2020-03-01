@@ -8,9 +8,14 @@ DOT_ENV.config();
 // Initialize app
 const APP = EXPRESS();
 
+// Determine port
+const PORT = process.env.PORT || 5000;
+
 // Use Json parse and cors
 APP.use(EXPRESS.json());
+console.log('- Json parser working');
 APP.use(CORS());
+console.log('- CORS working');
 
 // DB Configuration
 const DB_URI = process.env.MONGODB_URI;
@@ -26,10 +31,10 @@ const EXERCISE_ROUTER = require('./routes/exercises');
 const USER_ROUTER = require('./routes/users');
 // ROUTES
 APP.use('/exercises', EXERCISE_ROUTER);
+console.log('- Exercise route recognized');
 APP.use('/users', USER_ROUTER);
+console.log('- Users route recognized');
 
-// Determine port
-const PORT = process.env.PORT || 5000;
 // APP server please listen
 APP.listen(PORT, () => {
     console.log(`SERVER IS LISTENING ON PORT: ${PORT}`);

@@ -17,14 +17,14 @@ const EXERCISE_SCHEMA = new SCHEMA({
     },
     date: {
         type: Date,
-        required: true
+        default: Date.now()
     }
 }, {
     timestamps: true
 });
 
 // Initialize model
-const EXERCISE = MONGOOSE.model('Exercise', EXERCISE_SCHEMA);
+const EXERCISE = MONGOOSE.model('EXERCISE', EXERCISE_SCHEMA);
 
 // Export model
 module.exports = EXERCISE;

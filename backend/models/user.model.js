@@ -5,8 +5,7 @@ const SCHEMA = MONGOOSE.Schema;
 const USER_SCHEMA = new SCHEMA({
     name: {
         type: String,
-        trim: true,
-        required: false
+        trim: true
     },
     email: {
         type: String,
@@ -32,7 +31,7 @@ const USER_SCHEMA = new SCHEMA({
 });
 
 // Initialize model
-const USER = MONGOOSE.model('User', USER_SCHEMA);
+const USER = MONGOOSE.model('USER', USER_SCHEMA);
 
 // Export model
 module.exports = USER;

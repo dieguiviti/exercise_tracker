@@ -16,20 +16,20 @@ ROUTER
     .route('/add')
     .post( (request, response) => {
         // Initialize user properties and values
-        const USERNAME = request.body.username;
-        const NAME = request.body.name;
-        const EMAIL = request.body.email;
-        const PASSWORD = request.body.password;
+        let name = request.body.name;
+        let username = request.body.username;
+        let email = request.body.email;
+        let password = request.body.password;
 
         // Initialize user
-        const NEW_USER = {
-            NAME,
-            USERNAME,
-            EMAIL,
-            PASSWORD
-        };
+        const NEW_USER = new USER({
+            name,
+            username,
+            email,
+            password
+        });
 
-        // Save user
+        // Save user to database
         NEW_USER
                 .save()
                 .then( () => response.json('User Added!'))
