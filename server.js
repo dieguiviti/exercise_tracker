@@ -1,6 +1,7 @@
 const EXPRESS = require('express');
 const MONGOOSE = require('mongoose');
 const CORS = require('cors');
+const PATH = require("path")
 // Configure connection to .env file
 const DOT_ENV = require('dotenv');
 DOT_ENV.config();
@@ -11,7 +12,8 @@ const APP = EXPRESS();
 // Determine port
 const PORT = process.env.PORT || 5000;
 
-// Use Json parse and cors
+// Use Middleware
+APP.use(EXPRESS.static(PATH.join(__dirname, "client", "build")))
 APP.use(EXPRESS.json());
 console.log('- Json parser working');
 APP.use(CORS());
@@ -34,6 +36,11 @@ APP.use('/exercises', EXERCISE_ROUTER);
 console.log('- Exercise route recognized');
 APP.use('/users', USER_ROUTER);
 console.log('- Users route recognized');
+
+// Production
+APP.get("*", (req, res) => {
+    res.sendFile(PATH.join(__dirname, "client", "build", "index.html"));
+});
 
 // APP server please listen
 APP.listen(PORT, () => {
