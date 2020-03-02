@@ -7,7 +7,7 @@ const Exercise = (props) => (
     <tr>
         <td>{props.exercise.username}</td>
         <td>{props.exercise.description}</td>
-        <td>{props.exercise.duration}</td>
+        <td>{props.exercise.duration} min</td>
         <td>{props.exercise.date.substring(0,10)}</td>
         <td>
             <button className="btn btn-secondary"><Link id="fix-link" to={'/edit/' + props.exercise._id}>Fix</Link></button> | <button className="btn btn-danger" onClick={()=>{props.deleteExercise(props.exercise._id)}}>X</button>
