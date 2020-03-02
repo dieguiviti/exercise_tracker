@@ -52,7 +52,7 @@ export default class ExercisesList extends Component {
 
     render(){
         return(
-            <div className="container p-3 m-3">
+            <div className="container">
                 <h3>History</h3>
                 <table className="table">
                     <thead className="thread-light">
