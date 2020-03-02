@@ -34,8 +34,6 @@ ROUTER
                 .save()
                 .then( () => response.json('Exercise Added!'))
                 .catch( error => response.status(400).json('Error: ' + error));
-
-        console.log('-|-|- Exercise added to database');
     });
 
 // Get a single exercise data
