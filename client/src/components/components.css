@@ -3,3 +3,9 @@
     color: purple;
     font-size: 3rem;
 }
+
+/* EXERCISE LIST */
+#fix-link {
+    text-decoration: none;
+    color: white
+}
