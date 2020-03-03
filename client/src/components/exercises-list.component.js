@@ -28,7 +28,7 @@ export default class ExercisesList extends Component {
     }
 
     componentDidMount() {
-        axios.get('http://localhost:5000/exercises').then( res => {
+        axios.get('/exercises').then( res => {
             this.setState({
                 exercises: res.data
             });
@@ -36,7 +36,7 @@ export default class ExercisesList extends Component {
     };
 
     deleteExercise = id => {
-        axios.delete('http://localhost:5000/exercises/'+ id).then(res => console.log(res.data));
+        axios.delete('/exercises/'+ id).then(res => console.log(res.data));
 
         this.setState({
             exercises: this.state.exercises.filter( exercise => exercise._id !== id)

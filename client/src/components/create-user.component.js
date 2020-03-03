@@ -31,7 +31,7 @@ export default class CreateUser extends Component {
         console.log(USER);
 
         axios
-            .post('http://localhost:5000/users/add', USER)
+            .post('/users/add', USER)
             .then( response => console.log(response.data))
             .catch( error => console.log(error));
 

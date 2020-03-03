@@ -11,23 +11,16 @@ ROUTER
             .catch( error => response.status(400).json('Error: ' + error));
     });
 
-// Add a user
-ROUTER
-    .route('/add')
-    .post( (request, response) => {
-        // Initialize user properties and values
-        let username = request.body.username;
 
-        // Initialize user
-        const NEW_USER = new USER({
-            username
-        });
-
-        // Save user to database
-        NEW_USER
-                .save()
-                .then( () => response.json('User Added!'))
-                .catch( error => response.status(400).json('Error: ' + error));
-    });
+ // Initialize user properties and values
+ ROUTER.route('/add').post((req, res) => {
+     const username = req.body.username;
+   
+     const newUser = new USER({username});
+   
+     newUser.save()
+            .then(() => res.json('User added!'))
+            .catch(err => res.status(400).json('Error: ' + err));
+});
 
 module.exports = ROUTER;
