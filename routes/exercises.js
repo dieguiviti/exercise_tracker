@@ -58,7 +58,7 @@ ROUTER
 
 // update Exercise
 ROUTER
-    .route('/update/:id')
+    .route('/edit/:id')
     .post( (request, response) => {
         EXERCISE
             .findById(request.params.id)
@@ -72,7 +72,7 @@ ROUTER
                 // save back to db
                 exercise
                     .save()
-                    .then( () => response.json('Exercise updated!'))
+                    .then( () => response.json(exercise))
                     .catch( error => response.status(400).json('Error: ' + error));
             })
             .catch( error => response.status(400).json('Error: ' + error));
